@@ -55,6 +55,7 @@
     <Compile Include="FormaGeometrica.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Retangulo.cs" />
     <Compile Include="TrianguloEquilatero.cs" />
     <Compile Include="TrianguloIsosceles.cs" />
     <Compile Include="TrianguloReto.cs" />

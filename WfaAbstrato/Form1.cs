@@ -24,6 +24,9 @@ namespace WfaAbstrato
                 case "Triangulo":
                     SelecionarTriangulo();
                     break;
+                case "Retangulo":
+                    SelecionarRetangulo();
+                    break;
                 default:
                     break;                    
             }
@@ -42,7 +45,7 @@ namespace WfaAbstrato
         {
             lblBase.Visible = txtBase.Visible = visible;
         }
-        
+
         private void SelecionarTriangulo()
         {
             cmbTipo.Visible = true;
@@ -59,6 +62,14 @@ namespace WfaAbstrato
 
             ExibirRaio(false);
 
+        }
+        private void SelecionarRetangulo()
+        {
+            ExibirBase(true);
+            ExibirAltura(true);
+            ExibirRaio(false);
+
+            cmbTipo.Visible = false;
         }
 
         private void cmbTipo_SelectedIndexChanged(object sender, EventArgs e)
@@ -101,7 +112,16 @@ namespace WfaAbstrato
 
             }
 
-            
+            else if (cmbForma.Text.Equals("Retangulo"))
+            {
+                FormaGeometrica retangulo = new Retangulo()
+                {
+                    Base = Convert.ToDouble(txtBase.Text),
+                    Alt = Convert.ToDouble(txtAltura.Text)
+                };
+                cmbObjetos.Items.Add(retangulo);
+
+            }
 
         }
 
