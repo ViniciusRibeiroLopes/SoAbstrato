@@ -30,6 +30,10 @@ namespace WfaAbstrato
                 case "Quadrado":
                     SelecionarQuadrado();
                     break;
+                case "Circunferencia":
+                    SelecionarRaio();
+                    break;
+
                 default:
                     break;                    
             }
@@ -74,11 +78,21 @@ namespace WfaAbstrato
 
             cmbTipo.Visible = false;
         }
+
         private void SelecionarQuadrado()
         {
             ExibirBase(true);
             ExibirAltura(false);
             ExibirRaio(false);
+
+            cmbTipo.Visible = false;
+        }
+
+        private void SelecionarRaio()
+        {
+            ExibirBase(false);
+            ExibirAltura(false);
+            ExibirRaio(true);
 
             cmbTipo.Visible = false;
         }
@@ -141,6 +155,16 @@ namespace WfaAbstrato
                     Alt = Convert.ToDouble(txtAltura.Text)
                 };
                 cmbObjetos.Items.Add(retangulo);
+
+            }
+
+            else if (cmbForma.Text.Equals("Circunferencia"))
+            {
+                FormaGeometrica circunferencia = new Circunferencia()
+                {
+                    Raio = Convert.ToDouble(txtRaio.Text),
+                };
+                cmbObjetos.Items.Add(circunferencia);
 
             }
 
