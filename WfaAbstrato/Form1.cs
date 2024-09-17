@@ -27,6 +27,9 @@ namespace WfaAbstrato
                 case "Retangulo":
                     SelecionarRetangulo();
                     break;
+                case "Quadrado":
+                    SelecionarQuadrado();
+                    break;
                 default:
                     break;                    
             }
@@ -71,6 +74,14 @@ namespace WfaAbstrato
 
             cmbTipo.Visible = false;
         }
+        private void SelecionarQuadrado()
+        {
+            ExibirBase(true);
+            ExibirAltura(false);
+            ExibirRaio(false);
+
+            cmbTipo.Visible = false;
+        }
 
         private void cmbTipo_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -109,6 +120,16 @@ namespace WfaAbstrato
                     };
                     cmbObjetos.Items.Add(triangulo);
                 }
+
+            }
+
+            else if (cmbForma.Text.Equals("Quadrado"))
+            {
+                FormaGeometrica quadrado = new Quadrado()
+                {
+                    Lado = Convert.ToDouble(txtBase.Text)
+                };
+                cmbObjetos.Items.Add(quadrado);
 
             }
 
